@@ -18,6 +18,7 @@ class Program {
     return output;
   }
 
+
   // result will be 0 based
   static int getPageNumberForPageUUID(String pUUID, JsonDocument doc, String notebookFileName) {
     int output = -1;
@@ -50,10 +51,9 @@ class Program {
     return output;
   }
 
+
   static TagReferences processFile(TagReferences gathered, System.IO.FileInfo current) {
-    
     JsonDocument doc = JsonDocument.Parse(current.OpenRead());
-    HashSet<string> collectedTags = new HashSet<string>();
 
     String notebookName = getNotebookNameForContentsFile(current);
     // Console.WriteLine(notebookName);
