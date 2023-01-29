@@ -19,7 +19,7 @@ public class TagInfo {
   public void print() {
     Console.WriteLine(this.name);
     foreach (PageReference currentRef in usages) {
-      currentRef.print();
+      Console.WriteLine(currentRef.prints());
     }
   }
     public TagInfo() {

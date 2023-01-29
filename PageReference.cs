@@ -12,14 +12,14 @@ public class PageReference : IComparable {
     return this.pageNumber;
    }
 
-    public void print() {
+    public string prints() {
         String humanPageNumber = null;
         if (this.pageNumber == -1) {
             humanPageNumber = "NOT FOUND?!";
         } else {
             humanPageNumber = String.Format("{0:D}", this.pageNumber + 1);
         }
-        Console.WriteLine("  * " + this.notebookName + " page " + humanPageNumber);
+        return ("  * " + this.notebookName + " page " + humanPageNumber);
     }
 
     int IComparable.CompareTo(object? inObj) {

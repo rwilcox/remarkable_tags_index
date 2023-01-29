@@ -90,15 +90,13 @@ class Program {
       processFile(referencesCollection, fi);
     }
 
-    Console.WriteLine(String.Join("\n", referencesCollection.Keys));
-    Console.WriteLine("================================================");
-
     Console.Write("Count of tags: ");
     Console.WriteLine(referencesCollection.Keys.Count);
     Console.Write("================================================");
 
-    foreach (TagInfo currentTag in referencesCollection.Values) {
-      currentTag.print();
+    foreach (KeyValuePair<string, TagInfo> current in referencesCollection.OrderBy(k => k.Key)) {
+        current.Value.print();
     }
+    Console.WriteLine("================================================");
   }
 }
