@@ -85,14 +85,23 @@ class Program {
     files = notebookDir.GetFiles("*.content");
     // Console.Write(files.Length);
 
+    Console.WriteLine("Notebooks");
+    Console.WriteLine("================================================");
     TagReferences referencesCollection = new TagReferences();
     foreach (System.IO.FileInfo fi in files) {
+      String notebookName = getNotebookNameForContentsFile(fi);
+      Console.WriteLine(notebookName);
+      Console.WriteLine(" * Last Slithin sync date: " + fi.LastWriteTimeUtc);
+
       processFile(referencesCollection, fi);
     }
 
+    Console.WriteLine("");
+    Console.WriteLine("TAG INFORMATION");
+    Console.WriteLine("================================================");
     Console.Write("Count of tags: ");
     Console.WriteLine(referencesCollection.Keys.Count);
-    Console.Write("================================================");
+    Console.WriteLine("================================================");
 
     foreach (KeyValuePair<string, TagInfo> current in referencesCollection.OrderBy(k => k.Key)) {
         current.Value.print();
