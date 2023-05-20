@@ -81,11 +81,12 @@ class Program {
     String myRoot = args[0];
     DirectoryInfo notebookDir = new DirectoryInfo(myRoot);
 
-    System.IO.FileInfo[] files = null; 
+    System.IO.FileInfo[] files = null;
     files = notebookDir.GetFiles("*.content");
     // Console.Write(files.Length);
 
     Console.WriteLine("Notebooks");
+
     Console.WriteLine("================================================");
     TagReferences referencesCollection = new TagReferences();
     foreach (System.IO.FileInfo fi in files) {
@@ -96,8 +97,10 @@ class Program {
       processFile(referencesCollection, fi);
     }
 
+    String today = DateTime.Today.ToString("yyyy-MM-dd");
+
     Console.WriteLine("");
-    Console.WriteLine("TAG INFORMATION");
+    Console.WriteLine("TAG INFORMATION (generated " + today + ")");
     Console.WriteLine("================================================");
     Console.Write("Count of tags: ");
     Console.WriteLine(referencesCollection.Keys.Count);
