@@ -32,6 +32,8 @@ The binary is now found in `bin/Debug/net7.0/`
 
 Example: `.\tags_explorer.exe "C:\Users\rwilcox\OneDrive\Documents\Slithin\Devices\Mine\Notebooks"`
 
+Monitor the modification dates that come back, as Slithin may not be updating your files...
+
 # Results
 
 The results of the program should be something like this!
