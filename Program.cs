@@ -77,8 +77,14 @@ class Program {
     return gathered;
   }
 
-  static void Main(string[] args) {
-    String myRoot = args[0];
+  /// <summary>
+  ///   tags_explorer LOCATION_OF_YOUR_REMARKABLE_FILES [--additional-options=...]
+  /// </summary>
+  /// <param name="root">location where the RM files are</param>
+  /// <param name="format">what format to output (default: plain)</param>
+  static void Main(string argument, string format="text") {
+    String root = argument;
+    String myRoot = root;
     DirectoryInfo notebookDir = new DirectoryInfo(myRoot);
 
     System.IO.FileInfo[] files = null;
