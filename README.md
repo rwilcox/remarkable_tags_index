@@ -20,7 +20,9 @@ I want a list of all my tags, and notebook names and page numbers, on the deskto
 
 # Setup
 
-This app works with [Slithin](https://github.com/furesoft/Slithin/). 
+## Slithin
+
+You can use [Slithin](https://github.com/furesoft/Slithin/) to transfer your files to your computer
 
 **First**: Synchronize your Remarkable with your computer and note where Slithin stores the folder (probably in your Documents folder, which may or may not be on your OneDrive).
 
@@ -31,6 +33,18 @@ The binary is now found in `bin/Debug/net7.0/`
 **Third**: Run the application: `tags_explorer`. It takes a single argument: the path to the Notebooks folder Slithin saved for you
 
 Example: `.\tags_explorer.exe "C:\Users\rwilcox\OneDrive\Documents\Slithin\Devices\Mine\Notebooks"`
+
+## SCP
+
+You can also use `scp`. An example command is:
+
+**First**: Syncronize your Remarkable with your computer via this shell command (or a variant)
+
+    scp -r root@$REMARKABLE_IP_ADDRESS:~/.local/share/remarkable/xochitl/ ~/Documents/Remarkable_Backup/
+
+**Second**: (same as above)
+
+**Third**: Run the application, except the argument is the location you saved your files to, ie: `tags_explorer ~/Documents/Remarkable_Backup/`
 
 # Results
 
@@ -48,7 +62,7 @@ The results of the program should be something like this!
       * Inboz page 13
       * Inboz page 15
       * Dev Synthesis page 1
-      * Future blog posts page 8    
+      * Future blog posts page 8
     javascript
       * Inboz page 13
     emacs
@@ -57,7 +71,7 @@ The results of the program should be something like this!
       * Future blog posts page 11
     remarkable
       * Finances page 21
-      * Mini Projects page 7      
+      * Mini Projects page 7
 
 
 # Disclaimer!
