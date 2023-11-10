@@ -77,20 +77,8 @@ class Program {
     return gathered;
   }
 
-  /// <summary>
-  ///   tags_explorer LOCATION_OF_YOUR_REMARKABLE_FILES [--additional-options=...]
-  /// </summary>
-  /// <param name="root">location where the RM files are</param>
-  /// <param name="format">what format to output (default: plain)</param>
-  static void Main(string argument, string format="text") {
-    String root = argument;
-    String myRoot = root;
-    DirectoryInfo notebookDir = new DirectoryInfo(myRoot);
 
-    System.IO.FileInfo[] files = null;
-    files = notebookDir.GetFiles("*.content");
-    // Console.Write(files.Length);
-
+  static void tagIndexPlainFormat(System.IO.FileInfo[] files) {
     Console.WriteLine("Notebooks");
 
     Console.WriteLine("================================================");
@@ -116,5 +104,25 @@ class Program {
         current.Value.print();
     }
     Console.WriteLine("================================================");
+  }
+
+
+  /// below main method uses: https://github.com/dotnet/command-line-api/
+  /// <summary>
+  ///   tags_explorer LOCATION_OF_YOUR_REMARKABLE_FILES [--additional-options=...]
+  /// </summary>
+  /// <param name="argument">location where the RM files are</param>
+  /// <param name="report">report type (defaults to tag-index)"
+  /// <param name="format">what format to output (default: plain)</param>
+  static void Main(string argument, string report="tag-index", string format="text") {
+    String root = argument;
+    String myRoot = root;
+    DirectoryInfo notebookDir = new DirectoryInfo(myRoot);
+
+    System.IO.FileInfo[] files = null;
+    files = notebookDir.GetFiles("*.content");
+    // Console.Write(files.Length);
+
+    tagIndexPlainFormat(files);
   }
 }
