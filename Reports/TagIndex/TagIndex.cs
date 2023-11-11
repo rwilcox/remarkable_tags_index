@@ -3,7 +3,7 @@ using TagReferences = System.Collections.Generic.Dictionary<string, TagInfo>;
 
 namespace Reports {
     namespace TagIndex {
-        class TagIndex : IBaseReports {
+        class TagIndex : BaseReports {
             private TagReferences processFile(TagReferences gathered, System.IO.FileInfo current) {
                 JsonDocument doc = JsonDocument.Parse(current.OpenRead());
 

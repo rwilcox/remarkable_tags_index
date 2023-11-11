@@ -2,7 +2,7 @@ using System.Text.Json;
 using Reports;
 
 namespace Reports {
-    abstract class IBaseReports {
+    abstract class BaseReports {
         abstract public void run(System.IO.FileInfo[] files);
 
         public String getNotebookNameForContentsFile(System.IO.FileInfo contents) {

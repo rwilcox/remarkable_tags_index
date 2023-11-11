@@ -7,14 +7,17 @@ public class TagInfo {
     this.name = n;
   }
 
+
   public String getName() {
     return this.name;
   }
+
 
   public void appendPageReference(String notebookName, int pageNumber) {
     PageReference newRef = new PageReference(notebookName, pageNumber);
     usages.Add(newRef);
   }
+
 
   public void print() {
     Console.WriteLine(this.name);
@@ -22,9 +25,9 @@ public class TagInfo {
       Console.WriteLine(currentRef.prints());
     }
   }
+
+
     public TagInfo() {
         this.usages = new List<PageReference>();
     }
 }
-
- 
