@@ -12,7 +12,7 @@ Thankfully the Remarkable's Tags Menu option will display as many tags as I have
 
 ## But, you say, does the desktop or mobile app help?
 
-Currently these apps don't support tags.
+Yes, since writing this utility they've gained tag support
 
 # Problems this app solves
 
@@ -44,7 +44,7 @@ You can also use `scp`. An example command is:
 
 **Second**: (same as above)
 
-**Third**: Run the application, except the argument is the location you saved your files to, ie: `tags_explorer ~/Documents/Remarkable_Backup/`
+**Third**: Run the application, except the argument is the location you saved your files to, ie: `tags_explorer ~/Documents/Remarkable_Backup/xochitl/`
 
 # Results
 
