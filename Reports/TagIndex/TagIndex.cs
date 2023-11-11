@@ -39,7 +39,7 @@ namespace Reports {
             }
 
 
-             public override void run(System.IO.FileInfo[] files) {
+             public override void run(System.IO.FileInfo[] files, string format) {
                 Reports.TagIndex.Presenters.PlainText present = new Reports.TagIndex.Presenters.PlainText();
                 Reports.TagIndex.Presenters.JsonPresenter jpresent = new Reports.TagIndex.Presenters.JsonPresenter();
 
@@ -55,8 +55,14 @@ namespace Reports {
                     processFile(referencesCollection, fi);
                 }
 
-                present.write(referencesCollection);
-                // jpresent.write(referencesCollection, this.rootFolder);
+                switch (format) {
+                    case "text":
+                        present.write(referencesCollection);
+                        break;
+                    case "json":
+                        jpresent.write(referencesCollection, this.rootFolder);
+                        break;
+                }
             }
         }
 

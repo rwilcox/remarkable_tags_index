@@ -21,6 +21,6 @@ class Program {
     // Console.Write(files.Length);
 
     TagIndex ti = new Reports.TagIndex.TagIndex(argument);
-    ti.run(files);
+    ti.run(files, format);
   }
 }

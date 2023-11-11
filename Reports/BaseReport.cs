@@ -3,7 +3,7 @@ using Reports;
 
 namespace Reports {
     abstract class BaseReports {
-        abstract public void run(System.IO.FileInfo[] files);
+        abstract public void run(System.IO.FileInfo[] files, string format);
 
         public String getNotebookNameForContentsFile(System.IO.FileInfo contents) {
             String output = "";
