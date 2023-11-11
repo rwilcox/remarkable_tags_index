@@ -22,7 +22,10 @@ namespace Reports {
                             gathered[currentTagName] = currentTag;
                         }
 
-                        currentTag.appendPageReference(notebookName, this.getPageNumberForPageUUID(pageId, doc, current.FullName));
+                        string notebookUUID = System.IO.Path.GetFileNameWithoutExtension(current.Name);
+                        currentTag.appendPageReference(notebookName,
+                                                       this.getPageNumberForPageUUID(pageId, doc, current.FullName),
+                                                       pageId, notebookUUID);
                     }
                 }
 

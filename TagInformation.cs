@@ -13,8 +13,8 @@ public class TagInfo {
   }
 
 
-  public void appendPageReference(String notebookName, int pageNumber) {
-    PageReference newRef = new PageReference(notebookName, pageNumber);
+  public void appendPageReference(String notebookName, int pageNumber, string pageUUID, string notebookUUID) {
+    PageReference newRef = new PageReference(notebookName, pageNumber, pageUUID, notebookUUID);
     usages.Add(newRef);
   }
 
