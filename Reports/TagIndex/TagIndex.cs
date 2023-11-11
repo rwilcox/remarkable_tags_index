@@ -31,9 +31,11 @@ namespace Reports {
 
 
              public override void run(System.IO.FileInfo[] files) {
-                Console.WriteLine("Notebooks");
+                Reports.TagIndex.Presenters.PlainText present = new Reports.TagIndex.Presenters.PlainText();
 
+                Console.WriteLine("Notebooks");
                 Console.WriteLine("================================================");
+
                 TagReferences referencesCollection = new TagReferences();
                 foreach (System.IO.FileInfo fi in files) {
                     String notebookName = this.getNotebookNameForContentsFile(fi);
@@ -43,19 +45,7 @@ namespace Reports {
                     processFile(referencesCollection, fi);
                 }
 
-                String today = DateTime.Today.ToString("yyyy-MM-dd");
-
-                Console.WriteLine("");
-                Console.WriteLine("TAG INFORMATION (generated " + today + ")");
-                Console.WriteLine("================================================");
-                Console.Write("Count of tags: ");
-                Console.WriteLine(referencesCollection.Keys.Count);
-                Console.WriteLine("================================================");
-
-                foreach (KeyValuePair<string, TagInfo> current in referencesCollection.OrderBy(k => k.Key)) {
-                    current.Value.print();
-                }
-                Console.WriteLine("================================================");
+               present.write(referencesCollection);
             }
         }
 
