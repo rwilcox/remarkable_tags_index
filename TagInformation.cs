@@ -1,6 +1,6 @@
 public class TagInfo {
   private String name;
-  private List<PageReference> usages;
+  public List<PageReference> usages { get; }
 
 
   public void setName(String n) {

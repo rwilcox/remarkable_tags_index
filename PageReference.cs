@@ -1,5 +1,7 @@
+using System.IO;
+
 public class PageReference : IComparable {
-    private String notebookName;
+     public string notebookName { get; }
 
     // while we do most of the reading from (UUID).content files the DATA lives in other files
     // HOWEVER, regardless of the organization of pages or notebooks in the RM they end up flat on the file system
@@ -20,6 +22,14 @@ public class PageReference : IComparable {
    public int getPageNumber() {
     return this.pageNumber;
    }
+
+    public int humanPageNumber() {
+        return this.pageNumber + 1;
+    }
+
+    public string relativeRMFileLocation() {
+        return Path.Combine(notebookUUID, pageUUID + ".rm");
+    }
 
     public string prints() {
         String humanPageNumber = null;

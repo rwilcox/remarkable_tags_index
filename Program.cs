@@ -14,15 +14,13 @@ class Program {
   /// <param name="report">report type (defaults to tag-index)"
   /// <param name="format">what format to output (default: plain)</param>
   static void Main(string argument, string report="tag-index", string format="text") {
-    String root = argument;
-    String myRoot = root;
-    DirectoryInfo notebookDir = new DirectoryInfo(myRoot);
+    DirectoryInfo notebookDir = new DirectoryInfo(argument);
 
     System.IO.FileInfo[] files = null;
     files = notebookDir.GetFiles("*.content");
     // Console.Write(files.Length);
 
-    TagIndex ti = new Reports.TagIndex.TagIndex();
+    TagIndex ti = new Reports.TagIndex.TagIndex(argument);
     ti.run(files);
   }
 }
