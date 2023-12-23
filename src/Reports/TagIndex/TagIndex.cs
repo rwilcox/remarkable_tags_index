@@ -40,13 +40,13 @@ namespace Reports {
 
 
              public override void run(System.IO.FileInfo[] files, string format) {
-                Reports.TagIndex.Presenters.PlainText present = new Reports.TagIndex.Presenters.PlainText();
-                Reports.TagIndex.Presenters.JsonPresenter jpresent = new Reports.TagIndex.Presenters.JsonPresenter();
+                var present = new Reports.TagIndex.Presenters.PlainText();
+                var jpresent = new Reports.TagIndex.Presenters.JsonPresenter();
 
                 // Console.WriteLine("Notebooks");
                 // Console.WriteLine("================================================");
 
-                TagReferences referencesCollection = new TagReferences();
+                var referencesCollection = new TagReferences();
                 foreach (System.IO.FileInfo fi in files) {
                     String notebookName = this.getNotebookNameForContentsFile(fi);
                     // Console.WriteLine(notebookName);
