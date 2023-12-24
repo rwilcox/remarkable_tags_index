@@ -2,6 +2,7 @@
 using System.IO;
 using System.Collections.Generic;
 using Reports.TagIndex;
+using Reports.PageIndex;
 
 class Program {
 
@@ -20,7 +21,20 @@ class Program {
     files = notebookDir.GetFiles("*.content");
     // Console.Write(files.Length);
 
-    TagIndex ti = new Reports.TagIndex.TagIndex(argument);
-    ti.run(files, format);
+    switch (report) {
+        case "tag-index": {
+            TagIndex ti = new Reports.TagIndex.TagIndex(argument);
+            ti.run(files, format);
+            break;
+        }
+        case "page-index": {
+            PageIndex pageIndex = new Reports.PageIndex.PageIndex(argument);
+            pageIndex.run(files, format);
+            break;
+        }
+        default:
+            Console.Write("Unknown command!");
+            break;
+    }
   }
 }
