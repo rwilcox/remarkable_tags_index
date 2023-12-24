@@ -36,7 +36,7 @@ namespace Reports {
                        OR pages may not be there. In that case the pages structure
                        is inside cPages - cPages.pages, which is an array of objects
 
-                  for every item in the pages array find out if we've built up the tags for that page. If so we'll have a ton of tags. (If not, create a new Page entry as it doesn't yet exist)
+                       for every item in the pages array find out if we've built up the tags for that page. If so we'll have a ton of tags. (If not, create a new Page entry as it doesn't yet exist)
                 */
                 var foundTags = doc.RootElement.TryGetProperty("pageTags", out var pageTags);
                 if (foundTags) {
@@ -46,8 +46,6 @@ namespace Reports {
                         string puuid = tagEntry.GetProperty("pageId").GetString();
 
                         newPageIfRequired(pagesByUUID, puuid);
-                        // can't set page number here as we don't know WHERE the pageId is
-                        // found (even though we know it's used somewhere)
                         Page foundPage = pagesByUUID[puuid];
 
                         foundPage.tags.Add(tagEntry.GetProperty("name").GetString());
@@ -71,7 +69,6 @@ namespace Reports {
                        // TODO: better error handling here??!
                        return output;
                    }
-                   //Console.Write("cPages found " + notebookName + " (" + output.fileLocation + ")\n");
                    var cPages = doc.RootElement.GetProperty("cPages").GetProperty("pages");
                    var c = 0;
                    foreach(JsonElement cPageInfo in cPages.EnumerateArray()) {
