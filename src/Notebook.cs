@@ -2,6 +2,7 @@ class Notebook {
     public string name { get; set; }
     public List<Page> pages { get; set; }
     public string fileLocation { get; set; }
+    public string notebook_uuid { get; set; }
 
     public Notebook() {
         pages = new List<Page>();

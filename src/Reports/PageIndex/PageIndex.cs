@@ -26,6 +26,7 @@ namespace Reports {
 
                 var output = new Notebook();
                 output.fileLocation = current.FullName;
+                output.notebook_uuid = Path.GetFileNameWithoutExtension(current.FullName);
 
                 JsonDocument doc = JsonDocument.Parse(current.OpenRead());
 
